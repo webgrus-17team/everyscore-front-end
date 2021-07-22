@@ -7,8 +7,10 @@
         border: 10px solid #01579B;
         border-radius: 10px;
       }
-      .info{
+      .Join_box{
         font-size: 17px;
+        text-align: right;
+        padding-right: 18px;
       }
       .form-group input[type=text],
       .form-group input[type=password]
