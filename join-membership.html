@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <title>EveryScore 회원가입</title>
+    <style>
+      #회원가입 {
+        text-align: center;
+        font-size: 20px;
+        border-top: 3px solid #01579B;
+        padding-top: 10px;
+      }
+      #submit_box {
+        width : 90px;
+        height: 40px;
+        font-size: 18px;
+        background-color:#01579B;
+        color: white;
+        margin-right : 5px;
+        border-radius: 7px;
+        float: right;
+      }
+      .birthday_box {
+        width: 47px;
+        height: 32px;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+      .birthday_select_box{
+        width: 50px;
+        height: 35px;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+      body {
+        background-color: whitesmoke;
+        margin : 0px;
+        padding : 0px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+      }
+      strong{
+        font-size: 40px;
+        font-family: 'Ubuntu', sans-serif;
+      }
+      input {
+        height : 35px;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+      td {
+        width : 200px;
+      }
+      tr {
+        height : 40px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <p><img src="Github/everyscore-front-end/outline_done_outline_black_24dp.png" title="check" width="55"><strong>EveryScore</strong></p>
+      <p id="회원가입">[ 회원가입 ]</p>
+
+      <form name="Join_Total_Information" action="http://ManagePage.co.kr" method="post">
+        <table border="0">
+          <tr>
+            <td>성별 </td>
+            <td>
+              <input type="radio" name="gender" value="male">남자
+              <input type="radio" name="gender" value="female">여자
+            </td>
+          </tr>
+          <tr>
+            <td>생년월일</td>
+            <td>
+              <input type="text" class="birthday_box" name="birthday_year" maxlength="4" placeholder="년(4자)">
+              <select class="birthday_select_box" name="birthday_month" >
+                <option>월</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+              <input type="text" class="birthday_box" name="birthday_day" maxlength="2" placeholder="일">
+            </td>
+          <tr>
+            <td>학번</td> <td><input type="text" name="major" placeholder="ex) 12202538"></td>
+          </tr> 
+          <tr>
+            <td>학과</td> <td><input type="text" name="classnumber" placeholder="ex) 컴퓨터공학"></td>
+          </tr>  
+          <tr>
+            <td>이름</td> <td><input type="text" name="username" placeholder="ex) 홍길동"></td>
+          </tr>
+          <tr>
+            <td>아이디</td> <td><input type="text" name="id" placeholder="ex) stu123"></td>
+          </tr>
+          <tr>
+            <td>비밀번호</td> <td><input type="password" name="pw" placeholder="********"></td>
+          </tr>
+          <tr>
+            <td>이메일</td> <td><input type="email" name="email" placeholder="ex) stu123@naver.com"></td>
+          </tr>
+        </table>
+        <br>
+        <input id="submit_box" type="submit" value="완료">
+      </form>
+    </div>
+  </body>
+</html>
