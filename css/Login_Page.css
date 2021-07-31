@@ -12,7 +12,7 @@
       }
       .Join_box{
         font-size: 17px;
-        text-align: right;
+        text-align: center;
         padding-right: 18px;
       }
       .form-group input[type=text],
@@ -43,4 +43,3 @@
         font-size: 40px;
         font-family: 'Ubuntu', sans-serif;
       }
-
