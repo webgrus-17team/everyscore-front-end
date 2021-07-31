@@ -26,12 +26,10 @@ a:hover{
 }
 .everyscore_item a{
               text-decoration: none;
-              color: #E3F2FD;
               font-size: 17px;
 }
 .everyscore_logo a{
               text-decoration: none;
-              color: black;
               font-size: 30px;
               font-family: 'Ubuntu', sans-serif;
               color: #01579B
