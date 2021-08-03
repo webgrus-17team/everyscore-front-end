@@ -73,6 +73,15 @@
           #paging .move_button {
             background-color: #eee;
           }
+          .big_menu {
+            cursor: pointer;
+            font-size: 20px;
+          }
+          .small_menu a {
+            font-size: 15px;
+            color: red;
+            text-decoration: none;
+          }
           table{
             width : 100%;  /*해당 칸에서 꽉채워서 표가 차지하게 함*/
             margin : 0px;
@@ -90,10 +99,10 @@
           tbody tr td:nth-child(2) { /* 예외적으로 tbody의 각줄의 2번째 td만 가운데 정렬 */
             text-align: left;
           }
-            strong{
-                font-family: 'Poor Story', cursive;
-                font-size: 27px;
-            }
+          strong{
+            font-family: 'Poor Story', cursive;
+            font-size: 27px;
+          }
           h1 {
             color: whitesmoke;
             margin: 0px;
@@ -101,12 +110,11 @@
             text-align: center;
             color: white;
             /* 그라데이션 코드 시작 */
-            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#01579b+0,80adc9+100 */
-            background: #01579b; /* Old browsers */
+            background: #01579b;
             background: -webkit-linear-gradient(left, #01579b 0%, #80adc9 100%);
             background: -o-linear-gradient(left, #01579b 0%, #80adc9 100%);
-            background: linear-gradient(to right, #01579b 0%, #80adc9 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01579b', endColorstr='#80adc9',GradientType=1 ); /* IE6-9 */
+            background: linear-gradient(to right, #01579b 0%, #80adc9 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01579b', endColorstr='#80adc9',GradientType=1 );
             /* 그라데이션 코드 끝 */
             }
         </style>
@@ -123,14 +131,14 @@
                 <li class="everyscore_item"><a href=""><img src="img/outline_logout_black_24dp.png" height=30, width=30></a></li>
             </ul>
         </nav>
-        <h1><strong>게 시 판</strong></h1><br><br><br>
+        <h1><strong>게 시 판</strong></h1><br><br>
 
         <div id="Main_Info">
           <div></div>
           <div>
             <div id="Writing_Search_Button">
               <div>
-                <a href="" class=writing>글쓰기</a>
+                <a href="main_1.html" class=writing>글쓰기</a>
               </div>
               <div></div>
               <div>
@@ -147,16 +155,64 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>4</td> <td>자료구조</td> <td>이연</td> <td>2021-08-19</td>
+                  <td>4</td>
+                  <td>
+                    <ul class="big_menu">
+                      <li>자료구조</li>
+                      <ul class="small_menu">
+                        <li><a href="main_2.html">중간고사</a></li>
+                        <li><a href="main_2.html">퀴즈</a></li>
+                        <li><a href="main_2.html">기말고사</a></li>
+                      </ul>
+                    </ul>
+                  </td>
+                  <td>이연</td>
+                  <td>2021-08-19</td>
                 </tr>
                 <tr>
-                  <td>3</td> <td>컴퓨터공학 입문</td> <td>김두영</td> <td>2021-07-19</td>
+                  <td>3</td>
+                  <td>
+                    <ul class="big_menu">
+                      <li>컴퓨터공학 입문</li>
+                      <ul class="small_menu">
+                        <li><a href="main_2.html">중간고사</a></li>
+                        <li><a href="main_2.html">퀴즈</a></li>
+                        <li><a href="main_2.html">기말고사</a></li>
+                      </ul>
+                    </ul>
+                  </td>
+                  <td>김두영</td>
+                  <td>2021-07-19</td>
                 </tr>
                 <tr>
-                  <td>2</td> <td>물리학 2</td> <td>김두영</td> <td>2021-07-11</td>
+                  <td>2</td>
+                  <td>
+                    <ul class="big_menu">
+                      <li>물리학 2<i class="arrow fas fa-angle-right"></i></2i></li>
+                      <ul class="small_menu">
+                        <li><a href="main_2.html">중간고사</a></li>
+                        <li><a href="main_2.html">퀴즈</a></li>
+                        <li><a href="main_2.html">기말고사</a></li>
+                      </ul>
+                    </ul>
+                  </td>
+                  <td>김두영</td>
+                  <td>2021-07-11</td>
                 </tr>
                 <tr>
-                  <td>1</td> <td>객체지향프로그래밍 1</td> <td>김태간</td> <td>2021-07-07</td>
+                  <td>1</td>
+                  <td>
+                    <ul class="big_menu">
+                      <li>객체지향프로그래밍 1</li>
+                      <ul class="small_menu">
+                        <li><a href="main_2.html">중간고사</a></li>
+                        <li><a href="main_2.html">퀴즈</a></li>
+                        <li><a href="main_2.html">기말고사</a></li>
+                      </ul>
+                    </ul>
+                  </td>
+                  <td>김태간</td>
+                  <td>2021-07-07</td>
                 </tr>
               </tbody>
             </table>
@@ -173,5 +229,14 @@
             </div>
           </div>
         </div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+          $(".small_menu").hide();
+          $(".big_menu").click(function () {
+              $("ul", this).slideToggle(200);
+          });
+        </script>
+
     </body>
 </html>
