@@ -13,6 +13,13 @@
         grid-template-columns: 1fr 600px 1fr ;
         /* 그리드 사용하여 가운데 표는 800px 가로길이 고정, 나머지 좌우여백 비율 1:1 */
       }
+      #Main_Info .Sub_Info {
+        padding-left: 30px;
+      }
+      strong{
+        font-family: 'Poor Story', cursive;
+        font-size: 27px;
+      }
       h1 {
         color: whitesmoke;
         margin: 0px;
@@ -47,11 +54,13 @@
       <div></div>
       <div>
         <canvas id="Score_Chart" width="10px"></canvas>
-        <p>표본수 : 18</p>
-        <p>평균 : 16.7</p>
-        <p>중간값 : 16</p>
-        <p>난이도 : 어려움</p>
-        <p>내 등수 : 7/18</p>
+        <div class="Sub_Info">
+          <p>표본수 : 35</p>
+          <p>평균 : 47.2</p>
+          <p>중간값 : 41</p>
+          <p>난이도 : 조금어려움</p>
+          <p>내 등수 : 7/18</p>
+        </div>
       </div>
       <div></div>
 
