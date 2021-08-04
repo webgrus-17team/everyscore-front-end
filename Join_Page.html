@@ -120,10 +120,10 @@
             </td>
           <tr>
             <td>학번</td> <td><input type="text" name="major" placeholder="  ex) 12202538"></td>
-          </tr> 
+          </tr>
           <tr>
             <td>학과</td> <td><input type="text" name="classnumber" placeholder="  ex) 컴퓨터공학"></td>
-          </tr>  
+          </tr>
           <tr>
             <td>이름</td> <td><input type="text" name="username" placeholder="  ex) 홍길동"></td>
           </tr>
@@ -144,5 +144,24 @@
         <br>
       </form>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(#submit_box).click(funtion(){
+        $.ajax({
+          url:'/api/v1/join',
+          type:'post',
+          data: $('form').serialize(),
+          success: funtion(data){
+            if (data==='JoinFail'){
+              alert('미입력된 회원가입 정보가 존재합니다.')
+            }
+            else {
+              window.location.href='Login_Page.html'
+            }
+          }
+        })
+      })
+    </script>
   </body>
 </html>
