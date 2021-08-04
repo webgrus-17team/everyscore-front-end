@@ -188,7 +188,7 @@
                   <td>2</td>
                   <td>
                     <ul class="big_menu">
-                      <li>물리학 2<i class="arrow fas fa-angle-right"></i></2i></li>
+                      <li>물리학 2<i class="arrow fas fa-angle-right"></i></li>
                       <ul class="small_menu">
                         <li><a href="main_2.html">중간고사</a></li>
                         <li><a href="main_2.html">퀴즈</a></li>
@@ -229,14 +229,13 @@
             </div>
           </div>
         </div>
-
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-          $(".small_menu").hide();
-          $(".big_menu").click(function () {
-              $("ul", this).slideToggle(200);
-          });
-        </script>
-
     </body>
 </html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(".small_menu").hide();
+  $(".big_menu").click(function () {
+      $("ul", this).slideToggle(200);
+  });
+</script>
