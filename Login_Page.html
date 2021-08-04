@@ -28,6 +28,25 @@
           </div>
         </div>
       </form>
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        $('#Loginbox').click(funtion(){
+          $.ajax({
+            url:'/api/v1/user',
+            type:'post',
+            data:$('form').serialize()
+            success:funtion(data){
+              if (data==='loginFail'){
+                alert('로그인 정보가 잘못되었습니다.')
+              }
+              else {
+                window.location.href='main_3.html';
+              }
+            }
+          })
+        })
+      </script>
     </div>
   </body>
 </html>
