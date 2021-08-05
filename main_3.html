@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&family=Poor+Story&family=Sunflower:wght@500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/testcss.css">
         <title>Every Score 게시판</title>
+        <link rel="stylesheet" href="css/testcss.css">
         <style>
           #Main_Info {
             margin : 0px;
@@ -82,6 +82,10 @@
             color: red;
             text-decoration: none;
           }
+          .subject{
+                list-style:none;
+                padding-left:0px;
+            }
           table{
             width : 100%;  /*해당 칸에서 꽉채워서 표가 차지하게 함*/
             margin : 0px;
@@ -116,10 +120,6 @@
             background: linear-gradient(to right, #01579b 0%, #80adc9 100%);
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01579b', endColorstr='#80adc9',GradientType=1 );
             /* 그라데이션 코드 끝 */
-            }
-            li{
-                list-style:none;
-                padding-left:0px;
             }
         </style>
     </head>
@@ -162,7 +162,7 @@
                   <td>4</td>
                   <td>
                     <ul class="big_menu">
-                      <li>자료구조</li>
+                      <li class="subject">자료구조</li>
                       <ul class="small_menu">
                         <li><a href="main_2.html">중간고사</a></li>
                         <li><a href="main_2.html">퀴즈</a></li>
@@ -177,7 +177,7 @@
                   <td>3</td>
                   <td>
                     <ul class="big_menu">
-                      <li>컴퓨터공학 입문</li>
+                      <li class="subject">컴퓨터공학 입문</li>
                       <ul class="small_menu">
                         <li><a href="main_2.html">중간고사</a></li>
                         <li><a href="main_2.html">퀴즈</a></li>
@@ -192,7 +192,7 @@
                   <td>2</td>
                   <td>
                     <ul class="big_menu">
-                      <li>물리학 2</li>
+                      <li class="subject">물리학 2</li>
                       <ul class="small_menu">
                         <li><a href="main_2.html">중간고사</a></li>
                         <li><a href="main_2.html">퀴즈</a></li>
@@ -207,7 +207,7 @@
                   <td>1</td>
                   <td>
                     <ul class="big_menu">
-                      <li>객체지향프로그래밍 1</li>
+                      <li class="subject">객체지향프로그래밍 1</li>
                       <ul class="small_menu">
                         <li><a href="main_2.html">중간고사</a></li>
                         <li><a href="main_2.html">퀴즈</a></li>
