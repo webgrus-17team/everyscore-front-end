@@ -20,8 +20,8 @@
             left: 230px;
           }
           #submit_box:hover{
-                    background-color: whitesmoke;
-                }
+            background-color: whitesmoke;
+          }
           .write{
             position: absolute;
             top: 40%;
@@ -152,11 +152,11 @@
               <tr>
                   <td>난이도</td>
                   <td class="block">
-                       <button id="child1" type="button">매우 쉬움</button>
-                        <button id="child2" type="button">쉬움</button>
-                        <button id="child3" type="button">보통</button>
-                        <button id="child4" type="button">어려움</button>
-                        <button id="child5" type="button">매우 어려움</button>
+                    <button id="child1" type="button">매우 쉬움</button>
+                    <button id="child2" type="button">쉬움</button>
+                    <button id="child3" type="button">보통</button>
+                    <button id="child4" type="button">어려움</button>
+                    <button id="child5" type="button">매우 어려움</button>
                   </td>
               </tr>
         </table>
@@ -166,3 +166,20 @@
     </div>
   </body>
 </html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $('button').on('click', function(event){
+    alert('213');
+  })
+  $('#submit_box').click(funtion(){
+    $.ajax({
+      url:
+      type: 'post',
+      data: $('form').serialize(),
+      success: funtion(data){
+        window.location.href='main_3.html';
+      }
+    })
+  })
+</script>
