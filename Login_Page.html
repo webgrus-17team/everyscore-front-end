@@ -35,6 +35,7 @@
           $.ajax({
             url:'/api/v1/user',
             type:'post',
+            dataType: 'JSON',
             data:$('form').serialize()
             success:funtion(data){
               if (data==='LoginFail'){

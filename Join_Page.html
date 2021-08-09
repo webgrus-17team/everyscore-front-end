@@ -150,6 +150,7 @@
         $.ajax({
           url:'/api/v1/join',
           type:'post',
+          dataType: 'JSON',
           data: $('form').serialize(),
           success: funtion(data){
             if (data==='JoinFail'){
