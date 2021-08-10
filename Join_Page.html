@@ -124,7 +124,7 @@
             <td>학과</td> <td><input type="text" name="classnumber" placeholder="  ex) 컴퓨터공학"></td>
           </tr>
           <tr>
-            <td>이름</td> <td><input type="text" name="username" placeholder="  ex) 홍길동"></td>
+            <td>이름</td> <td><input type="text" name="user_name" placeholder="  ex) 홍길동"></td>
           </tr>
           <tr>
             <td>아이디</td> <td><input type="text" name="id" placeholder="  ex) stu123"></td>
@@ -143,25 +143,25 @@
         <br>
       </form>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(#submit_box).click(funtion(){
-        $.ajax({
-          url:'/api/v1/join',
-          type:'post',
-          dataType: 'JSON',
-          data: $('form').serialize(),
-          success: funtion(data){
-            if (data==='JoinFail'){
-              alert('미입력된 회원가입 정보가 존재합니다.')
-            }
-            else {
-              window.location.href='Login_Page.html'
-            }
-          }
-        })
-      })
-    </script>
   </body>
 </html>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(#submit_box).click(funtion(){
+    $.ajax({
+      url: '/api/v1/join',
+      type: 'post',
+      dataType: 'JSON',
+      data: $('form').serialize(),
+      success: funtion(data){
+        if (data==='JoinFail'){
+          alert('미입력된 회원가입 정보가 있습니다.')
+        }
+        else {
+          window.location.href='Login_Page.html'
+        }
+      }
+    })
+  })
+</script>
