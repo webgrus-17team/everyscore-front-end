@@ -1,6 +1,6 @@
      *{
       font-family: 'Nanum Gothic', sans-serif;
-      }      
+      }
       #Loginbox{
         width: 316px;
         height: 55px;
@@ -11,8 +11,11 @@
         border-radius: 10px;
       }
       .Join_box{
-        font-size: 17px;
+        font-size: 15px;
         text-align: center;
+      }
+      .Join_box a{
+        font-size: 17px;
       }
       .form-group input[type=text],
       .form-group input[type=password]
@@ -36,9 +39,10 @@
       }
       a{
         text-decoration: none;
-        color:black;
+        color: blue;
       }
-      strong{
+      strong a{
+        color: #01579B;
         font-size: 40px;
         font-family: 'Ubuntu', sans-serif;
       }
