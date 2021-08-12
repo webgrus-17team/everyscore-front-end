@@ -21,6 +21,7 @@
 * 현재는 8u301버전임. 각자의 os에 맞게 다운로드를 클릭함.
 
 * 팝업창에 체크 후, 다운로드 한번 더 클릭
+
 <img src="/img/oracle2.png" width="500px" height="350px"></img>
 
 * 로그인 페이지로 넘어가게 됨 -> 계정 만들기 -> 이메일 인증
@@ -84,6 +85,7 @@
 -- gradle이 바로 다운로드되지 않을 수 있습니다. 상단이나 우측 하단에 gradle 관련 메시지가 열리면 클릭해 무조건 trust project를 체크합니다.
 
 <img src="/img/reference2.png" width="200px" height="50px"></img>
+
 기존의 자바파일이 위와 같은 기호의 클래스파일로 변경되었다면 맞게 된겁니다.
 
 - 이제 그 클래스파일에서 마우스 우클릭 run을 누르시면 됩니다.
@@ -92,7 +94,7 @@
 - 하단이 아래처럼 작동할 경우, 서버가 돌아가는 중입니다.
  <img src="/img/reference1.png" width="500px" height="350px"></img>
 
-- chrome의 주소창에 "localhost:8080"을 입력하면 됩니다.
+- 인터넷 주소창에 "localhost:8080"을 입력하면 됩니다.
 
 
 
