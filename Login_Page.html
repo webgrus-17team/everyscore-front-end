@@ -5,6 +5,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <title>Every Score</title>
     <style>
+      .hidden {
+        display: none;
+      }
        #Loginbox{
          width: 316px;
          height: 55px;
@@ -62,23 +65,28 @@
       </header>
       <form id="login-form" action="/api/v1/user" method ="post">
          <div class="id-pw-group">
-            <input type="text" name="id" required maxlength="20" placeholder="ID">
-            <input type="password" name="pw" required maxlength="20" placeholder="Password">
+            <input type="text" name="id" maxlength="20" placeholder="ID" required>
+            <input type="password" name="pw" maxlength="20" placeholder="Password" required>
          </div>
          <p><input type="submit" id="Loginbox" value="로그인" length="20"></p>
          <p class="Join_box">Every Score는 처음이야? <a href="Join_Page.html"> 회원가입</a></p>
-      </form>
+       </form>
+      <h1 id="greeting" class="hidden"></h1>
     </div>
   </body>
 </html>
 
 <script>
-  // const loginForm = document.querySelector("#login-form");
-  // const loginInput = document.querySelector("#login-form input");
+  const loginForm = document.querySelector("#login-form");
+  const loginInputId = document.querySelector("#login-form input[type=text]");
+  const loginInputPw = document.querySelector("#login-form input[type=password]");
 
-  // function onLoginSubmit(tomato){
-  //   console.log(tomato);
-  // }
-  //
-  // loginForm.addEventListener("submit", onLoginSubmit);
+  function onLoginSubmit(event){
+    const id = loginInputId.value;
+    const pw = loginInputPw.value;
+    localStorage.setItem("Id", id);
+    localStorage.setItem("Pw", pw);
+  }
+
+  loginForm.addEventListener("submit", onLoginSubmit);
 </script>

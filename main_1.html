@@ -7,10 +7,6 @@
     <link rel="stylesheet" href="css/testcss.css">
     <title>EveryScore 첫글작성</title>
     <style>
-      body {
-           margin: 0;
-           background-color: whitesmoke;
-      }
       #submit_box {
         width : 370px;
         height: 40px;
@@ -24,7 +20,7 @@
         left: 10px;
       }
       #submit_box:hover{
-                background-color: whitesmoke;
+        background-color: whitesmoke;
       }
        .write{
         position: absolute;
@@ -35,8 +31,8 @@
         grid-template-columns: 1fr 800px 1fr ;
       }
       strong{
-            font-family: 'Poor Story', cursive;
-            font-size: 27px;
+        font-family: 'Poor Story', cursive;
+        font-size: 27px;
       }
       input {
         height : 40px;
@@ -87,17 +83,17 @@
       <form name="scorepage">
         <table border="0">
           <tr>
-            <td>교수명</td> <td><input type="text" name="Professor_name" maxlength="10" placeholder="  ex) 김철수"></td>
+            <td>교수명</td> <td><input type="text" name="Professor_name" maxlength="10" placeholder="  ex) 김철수" required></td>
           </tr>
           <tr>
-            <td>과목명</td> <td><input type="text" name="Subject_name" placeholder="  ex) 일반수학1"></td>
+            <td>과목명</td> <td><input type="text" name="Subject_name" placeholder="  ex) 일반수학1" required></td>
           </tr>
           <tr>
             <td>시험종류 </td>
             <td>
-              <input class="test" type="radio" name="Test_type" value="Midterm_exam">중간
-              <input class="test" type="radio" name="Test_type" value="Final_exam">기말
-              <input class="test" type="radio" name="Test_type" value="Quiz">퀴즈
+              <input class="test" type="radio" name="Test_type" value="Midterm_exam" required>중간
+              <input class="test" type="radio" name="Test_type" value="Final_exam" required>기말
+              <input class="test" type="radio" name="Test_type" value="Quiz" required>퀴즈
             </td>
           </tr>
         </table>
