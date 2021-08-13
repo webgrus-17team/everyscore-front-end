@@ -22,8 +22,7 @@
          font-size: 17px;
        }
        .id-pw-group input[type=text],
-       .id-pw-group input[type=password]
-       {
+       .id-pw-group input[type=password]{
          width: calc(80%);
          padding: 15px;
          font-size: 18px;
@@ -66,7 +65,7 @@
             <input type="text" name="id" required maxlength="20" placeholder="ID">
             <input type="password" name="pw" required maxlength="20" placeholder="Password">
          </div>
-         <p><button id="Loginbox" value="로그인" length="20">로그인</button></p>
+         <p><input type="submit" id="Loginbox" value="로그인" length="20"></p>
          <p class="Join_box">Every Score는 처음이야? <a href="Join_Page.html"> 회원가입</a></p>
       </form>
     </div>
@@ -74,13 +73,12 @@
 </html>
 
 <script>
-  const loginInput = document.querySelector("#login-form input");
-  const loginButton = document.querySelector("#login-form button");
+  // const loginForm = document.querySelector("#login-form");
+  // const loginInput = document.querySelector("#login-form input");
 
-  function onLoginClick(){
-    const username = loginInput.value;
-    console.log(username);
-  }
-
-  loginButton.addEventListener("click", onLoginClick);
+  // function onLoginSubmit(tomato){
+  //   console.log(tomato);
+  // }
+  //
+  // loginForm.addEventListener("submit", onLoginSubmit);
 </script>
