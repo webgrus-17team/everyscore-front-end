@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form id="todo-form">
+      <input type="text" placeholder="입력후 엔터" required>
+    </form>
+
+    <ul id="todo-list">   </ul>
+
+  </body>
+</html>
+
+<script>
+  const toDoForm = document.getElementById("todo-form");
+  const toDoInput = document.querySelector("#todo-form input");
+  const toDoList = document.getElementById("todo-list");
+
+  const toDos = [];
+
+  function saveToDos(){
+    localStorage.setItem("todos", JSON.stringify(toDos));
+  }
+
+  function deleteToDo(event){
+    const li = event.target.parentElement;
+    li.remove();
+  }
+
+  function paintToDo(newToDo){
+    const li = document.createElement("li");
+    const span = document.createElement("span");
+    span.innerText = newToDo;
+    const button = document.createElement("button");
+    button.innerText = "X";
+    button.addEventListener("click", deleteToDo);
+    li.appendChild(span);
+    li.appendChild(button);
+    toDoList.appendChild(li);
+  }
+
+  function handleToDoSubmit(event){
+    event.preventDefault(); // submit의 기보동작인 엔터시 새로고침 막음
+    const newToDo = toDoInput.value;
+    toDoInput.value = "";
+    toDos.push(newToDo);
+    paintToDo(newToDo);
+    saveToDos();
+  }
+
+  toDoForm.addEventListener("submit", handleToDoSubmit);
+
+</script>
