@@ -353,15 +353,15 @@
 
 
 
-  // $(#hidden-submit-box).click(funtion(){
-  //   $.ajax({
-  //     url: '/api/v1/start',
-  //     type: 'post',
-  //     dataType: 'JSON',
-  //     data: $('form').serialize(),
-  //     success: funtion(data){
-  //       window.location.href='main_3.html'
-  //     }
-  //   })
-  // })
+  $('#hidden-submit-box').click(function(){
+    $.ajax({
+      url: '/api/v1/start',
+      type: 'post',
+      dataType: 'JSON',
+      data: $('form').serialize(),
+      success: function(data){
+        window.location.href='main_3.html'
+      }
+    })
+  })
 </script>

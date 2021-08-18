@@ -141,13 +141,13 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  $('#submit_box').click( funtion() {
+  $("#submit_box").click( function() {
     $.ajax({
       url: '/api/v1/input',
       type: 'post',
       data: $('form').serialize(),
       dataType: 'json',
-      success: funtion(data){
+      success: function(data){
         window.location.href='main_3.html';
       }
     })
