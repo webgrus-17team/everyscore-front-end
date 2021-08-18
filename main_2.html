@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&family=Poor+Story&family=Sunflower:wght@500&display=swap" rel="stylesheet">
-    <title>Every Score</title>
+    <title>ES 점수입력</title>
     <link rel="stylesheet" href="css/testcss.css">
     <style>
       #submit_box {
@@ -146,7 +146,7 @@
       url: '/api/v1/input',
       type: 'post',
       data: $('form').serialize(),
-      dataType: 'JSON',
+      dataType: 'json',
       success: funtion(data){
         window.location.href='main_3.html';
       }

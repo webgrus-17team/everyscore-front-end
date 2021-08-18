@@ -15,7 +15,7 @@
           }
           #writing-form {
             display: grid;
-            grid-template-columns: 90px 1fr 30px 180px;
+            grid-template-columns: 90px 1fr 35px 180px;
             height: 60px;
             text-align: left;
           }
@@ -33,10 +33,10 @@
             height: 45px;
             cursor: pointer;
           }
-          #writing-form .hidden-form {
+          #hidden-form {
             padding: 8px;
           }
-          #writing-form .hidden-form input[type=text] {
+          #hidden-form input[type=text] {
             margin-left: 10px;
             width: 110px;
             height : 25px;
@@ -45,10 +45,7 @@
             color: black;
             font-size: 15px;
           }
-          #writing-form img {
-            padding-top: 8px;
-          }
-          #hidden-submit-box{
+          #hiddenSubmitBbox{
             background-color: black;
             margin-left: 10px;
             height : 30px;
@@ -56,6 +53,9 @@
             border-radius: 5px;
             color: white;
             width: 60px;
+          }
+          #writing-form img {
+            padding-top: 8px;
           }
           #search-form {
             padding-top: 8px;
@@ -69,14 +69,19 @@
             border: 1px solid black;
             text-align: left;
           }
-          #table_head {
+          #postHead {
+            display: grid;
+            grid-template-columns: 105px 370px 175px 150px;
             text-align: center;
             border-top: 2px solid #01579B;
             border-bottom: 2px solid #01579B;
-            width : 100%;  /*해당 칸에서 꽉채워서 표가 차지하게 함*/
             margin : 0px;
             border-collapse: collapse;  /* table의 테두리가 기본2줄인데 1줄로 바꿈 */
             text-align: center;
+            font-size: 17px;
+          }
+          #postHead span{
+            padding: 10px;
           }
           .big_menu {
             cursor: pointer;
@@ -101,11 +106,14 @@
           }
           tr {
             border-bottom: 1px solid #999; /* 각줄 밑에 회색 선 만듦 */
+            display: grid;
+            grid-template-columns: 105px 370px 175px 150px;
           }
-          td {
-            padding : 8px;
+          .postNum, .professorname, .postDate{
+            display: grid;
+            place-content: center;
           }
-          tbody tr td:nth-child(2) { /* 예외적으로 tbody의 각줄의 2번째 td만 가운데 정렬 */
+          tr td:nth-child(2) { /* 예외적으로 tbody의 각줄의 2번째 td만 가운데 정렬 */
             text-align: left;
           }
           strong{
@@ -129,79 +137,48 @@
         </style>
     </head>
     <body>
-        <nav class="everyscore">
-            <div class="everyscore_logo">
-                <a href="main_3.html"><img src="img/outline_done_outline_black_24dp.png" height=40, width=40>Every Score</a>
-            </div>
-            <ul class="everyscore_menu">
-                <li class="everyscore_item"><a href="main_3.html"><img src="img/outline_home_black_24dp.png" title="홈" height=30, width=30></a></li>
-                <li class="everyscore_item"><a href=""><img src="img/outline_face_black_24dp.png" title="내정보" height=30, width=30></a></li>
-                <li class="everyscore_item"><a href="Login_Page.html"><img src="img/outline_logout_black_24dp.png" title="로그아웃" height=30, width=30></a></li>
-            </ul>
-        </nav>
-        <h1><strong>게 시 판</strong></h1><br><br>
-
-        <div id="Main_Info">
-          <div></div>
-          <div>
-            <div id="writing-form">
-              <div><button class=writing-button>글작성</button></div>
-              <div>
-                <form class="hidden-form">
-                  >>
-                  <input type="text" name="Subject_name" placeholder="  과목명" required>
-                  <input type="text" name="Professor_name" placeholder="  교수명" required>
-                  <input type="submit" id="hidden-submit-box" value="완료">
-                </form>
+          <nav class="everyscore">
+              <div class="everyscore_logo">
+                  <a href="main_3.html"><img src="img/outline_done_outline_black_24dp.png" height=40, width=40>Every Score</a>
               </div>
-              <div><img src="img/outline_search_black_24dp.png" title="검색" height=30, width=30></div>
-              <div id="search-form">
-                <input id="search-box" type="text" placeholder="  과목명 검색" onkeyup="filter()">
-              </div>
-            </div>
+              <ul class="everyscore_menu">
+                  <li class="everyscore_item"><a href="main_3.html"><img src="img/outline_home_black_24dp.png" title="홈" height=30, width=30></a></li>
+                  <li class="everyscore_item"><a href=""><img src="img/outline_face_black_24dp.png" title="내정보" height=30, width=30></a></li>
+                  <li class="everyscore_item"><a href="Login_Page.html"><img src="img/outline_logout_black_24dp.png" title="로그아웃" height=30, width=30></a></li>
+              </ul>
+          </nav>
+          <h1><strong>게 시 판</strong></h1><br><br>
 
+          <div id="Main_Info">
+            <div></div>
             <div>
-              <div style="overflow:scroll; overflow-x:hidden; width:820px; height:500px;">
+              <div id="writing-form">
+                <div><button class=writing-button>글작성</button></div>
+                <div>
+                  <form id="hidden-form">
+                    >>
+                    <input type="text" name="Subject_name" placeholder="  과목명" required>
+                    <input type="text" name="Professor_name" placeholder="  교수명" required>
+                    <input type="submit" id="hiddenSubmitBox" value="완료">
+                  </form>
+                </div>
+                <div><img src="img/outline_search_black_24dp.png" title="검색" height=30, width=30></div>
+                <div id="search-form">
+                  <input id="search-box" type="text" placeholder="  과목명 or 교수명" onkeyup="filter()">
+                </div>
+              </div>
+              <div>
+                <div id="postHead">
+                  <span class="postTopNum">번호</span>
+                  <span class="postTopSubject">과목명</span>
+                  <span class="postTopProfessor">교수명</span>
+                  <span class="postTopDate"> 작성일</span>
+                </div>
+                <div style="overflow:scroll; overflow-x:hidden; width:820px; height:500px;">
                 <!-- 스크롤 바(가로,세로) 만들고 가로 바(x) 숨김 -->
-                <table id="table">
-                  <thead id="table_head">
-                    <tr>
-                      <td>번호</td>  <td>과목명</td> <td>교수명</td> <td>작성일</td>
-                    </tr>
-                  </thead>
-                  <tbody>
+                  <table id="table">
                     <tr class="menu">
-                      <td>3</td>
-                      <td>
-                        <ul class="big_menu">
-                          <li class="subjectname">컴퓨터공학 입문</li>
-                          <ul class="small_menu">
-                            <li><a href="main_2.html">중간고사</a></li>
-                            <li><a href="main_2.html">퀴즈</a></li>
-                            <li><a href="main_2.html">기말고사</a></li>
-                          </ul>
-                        </ul>
-                      </td>
-                      <td class="professorname">백권희</td>
-                      <td>2021-07-19</td>
-                    </tr>
-                    <tr class="menu">
-                      <td>2</td>
-                      <td>
-                        <ul class="big_menu">
-                          <li class="subjectname">물리학 2</li>
-                          <ul class="small_menu">
-                            <li><a href="main_2.html">중간고사</a></li>
-                            <li><a href="main_2.html">퀴즈</a></li>
-                            <li><a href="main_2.html">기말고사</a></li>
-                          </ul>
-                        </ul>
-                      </td>
-                      <td class="professorname">임혜지</td>
-                      <td>2021-07-11</td>
-                    </tr>
-                    <tr class="menu">
-                      <td>1</td>
+                      <td class="postNum">1</td>
                       <td>
                         <ul class="big_menu">
                           <li class="subjectname">객체지향프로그래밍 1</li>
@@ -213,74 +190,80 @@
                         </ul>
                       </td>
                       <td class="professorname">멘토님</td>
-                      <td>2021-07-07</td>
+                      <td class="postDate">2021-07-07</td>
                     </tr>
-                  </tbody>
-                </table>
+                  </table>
+                </div>
               </div>
             </div>
+            <div></div>
           </div>
-          <div></div>
-        </div>
-        <br>
-    </body>
+          <br><br>
+      </body>
 </html>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+  const hiddenForm =document.getElementById("hidden-form");
+  const InputSub = hiddenForm.querySelector("input[name=Subject_name]");
+  const InputPro = hiddenForm.querySelector("input[name=Professor_name]");
+  const table = document.getElementById("table");
+
+  function paintNew(newSub, newPro) {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    tr.appendChild(td);
+    td.innerText = newSub;
+    table.appendChild(tr);
+  }
+
+  function handleHiddenSubmit(event){
+    event.preventDefault();
+    const newSub = InputSub.value;
+    const newPro = InputPro.value;
+    InputSub.value = "";
+    InputPro.value = "";
+    paintNew(newSub, newPro);
+  }
+
+  hiddenForm.addEventListener("submit", handleHiddenSubmit);
+
   $(".small_menu").hide();
   $(".big_menu").click(function() {
       $("ul", this).slideToggle(200);
   });
 
-  $(".hidden-form").hide();
+  $("#hidden-form").hide();
   $(".writing-button").click(function() {
       $("form").slideToggle(50);
   });
 
 
   function filter(){
-    var searchbox, subjectname, menu, i;
+    var searchbox, subjectname, professorname, menu, i;
 
     searchbox = document.getElementById("search-box").value.toUpperCase();
     menu = document.getElementsByClassName("menu");
 
     for(i=0; i<menu.length; i++){
       subjectname = menu[i].getElementsByClassName("subjectname");
+      professorname = menu[i].getElementsByClassName("professorname");
 
       if(subjectname[0].innerHTML.toUpperCase().indexOf(searchbox) > -1){
         menu[i].style = "table";
-      }else{
+      }
+      else if(professorname[0].innerHTML.toUpperCase().indexOf(searchbox) > -1){
+        menu[i].style = "table";
+      }
+      else{
         menu[i].style.display = "none";
       }
     }
   }
 
-  const hiddenForm = document.getElementsByClassName("hidden-form");
-  const hiddenInputS = document.querySelector("#hidden-form input[name=Subject_name]");
-  const hiddenInputP = document.querySelector("#hidden-form input[name=Professor_name]");
 
-  function paintToDo(newToDoS, newToDoP){
-    const tr = document.createElement("tr");
-    const td = document.createElement("td");
-    const ul = document.createElement("ul");
-    const li = document.createElement("li");
-
-  }
-
-  function handleToDoSubmit(event){
-    event.preventDefault();
-    const newToDoS = hiddenInputS.value;
-    const newToDoP = hiddenInputP.value;
-    hiddenInputS.value = "";
-    hiddenInputP.value = "";
-    paintToDo(newToDoS, newToDoP);
-  }
-
-  hiddenForm.addEventListener("submit", handleToDoSubmit);
-
-
-  // $(#hidden-submit-box).click(funtion(){
+  //
+  // $(#hiddenSubmitBox).click(funtion(){
   //   $.ajax({
   //     url: '/api/v1/start',
   //     type: 'post',

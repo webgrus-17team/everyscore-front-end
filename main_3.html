@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@100&family=Poor+Story&family=Sunflower:wght@500&display=swap" rel="stylesheet">
-        <title>Every Score</title>
+        <title>ES 게시판</title>
         <link rel="stylesheet" href="css/testcss.css">
         <style>
           #Main_Info {
@@ -12,15 +12,12 @@
             display: grid;
             grid-template-columns: 1fr 800px 1fr ;
             text-align: center;
-            /* 그리드 사용하여 가운데 표는 800px 가로길이 고정, 나머지 좌우여백 비율 1:1 */
           }
           #writing-form {
             display: grid;
-            grid-template-columns: 90px 1fr 250px;
-            /* 그리드 써서 글쓰기, 가운데 여백, 검색란 비율을 10:13:10 */
+            grid-template-columns: 90px 1fr 35px 180px;
             height: 60px;
             text-align: left;
-            /* 글쓰기, 검색버튼 있는 줄과 표 사이 틈 줄임 */
           }
           #writing-form .writing-button {
             border: 1px solid whitesmoke;
@@ -34,8 +31,12 @@
             border-radius: 7px;
             font-size: 15px;
             height: 45px;
+            cursor: pointer;
           }
-          #writing-form .hidden-form input[type=text] {
+          #hidden-form {
+            padding: 8px;
+          }
+          #hidden-form input[type=text] {
             margin-left: 10px;
             width: 110px;
             height : 25px;
@@ -53,40 +54,34 @@
             color: white;
             width: 60px;
           }
-          #subjectname, #search{
+          #writing-form img {
+            padding-top: 8px;
+          }
+          #search-form {
+            padding-top: 8px;
+          }
+          #search-box{
             height: 25px;
             font-weight: 700;
             border-radius: 7px;
             font-size: 15px;
-            text-align: center;
-          }
-          #subjectname{
             width: 160px;
             border: 1px solid black;
             text-align: left;
           }
-          #search{
-            width: 50px;
-            height: 32px;
-            background-color: #01579B;
-            color: white;
-            border: 4px solid #01579B;
-          }
-          #search-form {
-            padding: 8px;
-          }
-          #table_head {
+          #postHead {
+            display: grid;
+            grid-template-columns: 105px 370px 175px 150px;
             text-align: center;
             border-top: 2px solid #01579B;
             border-bottom: 2px solid #01579B;
-            width : 100%;  /*해당 칸에서 꽉채워서 표가 차지하게 함*/
             margin : 0px;
-            padding : 0px;
             border-collapse: collapse;  /* table의 테두리가 기본2줄인데 1줄로 바꿈 */
             text-align: center;
+            font-size: 17px;
           }
-          .hidden-form {
-            padding: 8px;
+          #postHead span{
+            padding: 10px;
           }
           .big_menu {
             cursor: pointer;
@@ -97,7 +92,7 @@
             color: red;
             text-decoration: none;
           }
-          .subject{
+          .subjectname{
             list-style:none;
             padding-left:0px;
             color: #01579B;
@@ -111,11 +106,14 @@
           }
           tr {
             border-bottom: 1px solid #999; /* 각줄 밑에 회색 선 만듦 */
+            display: grid;
+            grid-template-columns: 105px 370px 175px 150px;
           }
-          td {
-            padding : 15px;
+          .postNum, .professorname, .postDate{
+            display: grid;
+            place-content: center;
           }
-          tbody tr td:nth-child(2) { /* 예외적으로 tbody의 각줄의 2번째 td만 가운데 정렬 */
+          tr td:nth-child(2) { /* 예외적으로 tbody의 각줄의 2번째 td만 가운데 정렬 */
             text-align: left;
           }
           strong{
@@ -139,55 +137,51 @@
         </style>
     </head>
     <body>
-        <nav class="everyscore">
-            <div class="everyscore_logo">
-                <a href="main_3.html"><img src="img/outline_done_outline_black_24dp.png" height=40, width=40>Every Score</a>
-            </div>
-            <ul class="everyscore_menu">
-                <li class="everyscore_item"><a href="main_3.html"><img src="img/outline_home_black_24dp.png" title="홈" height=30, width=30></a></li>
-                <li class="everyscore_item"><a href=""><img src="img/outline_face_black_24dp.png" title="내정보" height=30, width=30></a></li>
-                <li class="everyscore_item"><a href="Login_Page.html"><img src="img/outline_logout_black_24dp.png" title="로그아웃" height=30, width=30></a></li>
-            </ul>
-        </nav>
-        <h1><strong>게 시 판</strong></h1><br><br>
-
-        <div id="Main_Info">
-          <div></div>
-          <div>
-            <div id="writing-form">
-              <div><button class=writing-button>글쓰기</button></div>
-              <div>
-                <form class="hidden-form">
-                  >>
-                  <input type="text" name="Subject_name" placeholder="  과목명" required>
-                  <input type="text" name="Professor_name" placeholder="  교수명" required>
-                  <input type="submit" id="hidden-submit-box" value="완료">
-                </form>
+          <nav class="everyscore">
+              <div class="everyscore_logo">
+                  <a href="main_3.html"><img src="img/outline_done_outline_black_24dp.png" height=40, width=40>Every Score</a>
               </div>
-              <div id="search-form">
-                <input id= subjectname type="text" placeholder="  교수명 or 과목명">
-                <input id= search type="button" value="검색"><br><br>
-              </div>
-            </div>
+              <ul class="everyscore_menu">
+                  <li class="everyscore_item"><a href="main_3.html"><img src="img/outline_home_black_24dp.png" title="홈" height=30, width=30></a></li>
+                  <li class="everyscore_item"><a href=""><img src="img/outline_face_black_24dp.png" title="내정보" height=30, width=30></a></li>
+                  <li class="everyscore_item"><a href="Login_Page.html"><img src="img/outline_logout_black_24dp.png" title="로그아웃" height=30, width=30></a></li>
+              </ul>
+          </nav>
+          <h1><strong>게 시 판</strong></h1><br><br>
 
+          <div id="Main_Info">
+            <div></div>
             <div>
-              <table>
-
-              </table>
-              <div style="overflow:scroll; overflow-x:hidden; width:820px; height:500px;">
+              <div id="writing-form">
+                <div><button class=writing-button>글작성</button></div>
+                <div>
+                  <form id="hidden-form">
+                    >>
+                    <input type="text" name="Subject_name" placeholder="  과목명" required>
+                    <input type="text" name="Professor_name" placeholder="  교수명" required>
+                    <input type="submit" id="hidden-submit-box" value="완료">
+                  </form>
+                </div>
+                <div><img src="img/outline_search_black_24dp.png" title="검색" height=30, width=30></div>
+                <div id="search-form">
+                  <input id="search-box" type="text" placeholder="  과목명 or 교수명" onkeyup="filter()">
+                </div>
+              </div>
+              <div>
+                <div id="postHead">
+                  <span class="postTopNum">번호</span>
+                  <span class="postTopSubject">과목명</span>
+                  <span class="postTopProfessor">교수명</span>
+                  <span class="postTopDate"> 작성일</span>
+                </div>
+                <div style="overflow:scroll; overflow-x:hidden; width:820px; height:500px;">
                 <!-- 스크롤 바(가로,세로) 만들고 가로 바(x) 숨김 -->
-                <table id="table">
-                  <thead id="table_head">
-                    <tr>
-                      <td>번호</td>  <td>과목명</td> <td>교수명</td> <td>작성일</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>6</td>
+                  <table id="table">
+                    <tr class="menu">
+                      <td class="postNum">7</td>
                       <td>
                         <ul class="big_menu">
-                          <li class="subject">자료구조</li>
+                          <li class="subjectname">인터넷 프로그래밍</li>
                           <ul class="small_menu">
                             <li><a href="main_2.html">중간고사</a></li>
                             <li><a href="main_2.html">퀴즈</a></li>
@@ -195,14 +189,14 @@
                           </ul>
                         </ul>
                       </td>
-                      <td>이채연</td>
-                      <td>2021-08-19</td>
+                      <td class="professorname">최경일</td>
+                      <td class="postDate">2021-08-18</td>
                     </tr>
-                    <tr>
-                      <td>5</td>
+                    <tr class="menu">
+                      <td class="postNum">6</td>
                       <td>
                         <ul class="big_menu">
-                          <li class="subject">정보통신</li>
+                          <li class="subjectname">객체지향프로그래밍 2</li>
                           <ul class="small_menu">
                             <li><a href="main_2.html">중간고사</a></li>
                             <li><a href="main_2.html">퀴즈</a></li>
@@ -210,14 +204,14 @@
                           </ul>
                         </ul>
                       </td>
-                      <td>이도경</td>
-                      <td>2021-07-19</td>
+                      <td class="professorname">임혜지</td>
+                      <td class="postDate">2021-08-18</td>
                     </tr>
-                    <tr>
-                      <td>4</td>
+                    <tr class="menu">
+                      <td class="postNum">5</td>
                       <td>
                         <ul class="big_menu">
-                          <li class="subject">인터넷 프로그래밍</li>
+                          <li class="subjectname">프로젝트17</li>
                           <ul class="small_menu">
                             <li><a href="main_2.html">중간고사</a></li>
                             <li><a href="main_2.html">퀴즈</a></li>
@@ -225,14 +219,14 @@
                           </ul>
                         </ul>
                       </td>
-                      <td>최경일</td>
-                      <td>2021-07-19</td>
+                      <td class="professorname">이도경</td>
+                      <td class="postDate">2021-08-05</td>
                     </tr>
-                    <tr>
-                      <td>3</td>
+                    <tr class="menu">
+                      <td class="postNum">4</td>
                       <td>
                         <ul class="big_menu">
-                          <li class="subject">컴퓨터공학 입문</li>
+                          <li class="subjectname">자료구조</li>
                           <ul class="small_menu">
                             <li><a href="main_2.html">중간고사</a></li>
                             <li><a href="main_2.html">퀴즈</a></li>
@@ -240,14 +234,14 @@
                           </ul>
                         </ul>
                       </td>
-                      <td>백권희</td>
-                      <td>2021-07-19</td>
+                      <td class="professorname">백권희</td>
+                      <td class="postDate">2021-08-07</td>
                     </tr>
-                    <tr>
-                      <td>2</td>
+                    <tr class="menu">
+                      <td class="postNum">3</td>
                       <td>
                         <ul class="big_menu">
-                          <li class="subject">물리학 2</li>
+                          <li class="subjectname">컴퓨터공학입문</li>
                           <ul class="small_menu">
                             <li><a href="main_2.html">중간고사</a></li>
                             <li><a href="main_2.html">퀴즈</a></li>
@@ -255,14 +249,14 @@
                           </ul>
                         </ul>
                       </td>
-                      <td>임혜지</td>
-                      <td>2021-07-11</td>
+                      <td class="professorname">최경일</td>
+                      <td class="postDate">2021-07-30</td>
                     </tr>
-                    <tr>
-                      <td>1</td>
+                    <tr class="menu">
+                      <td class="postNum">2</td>
                       <td>
                         <ul class="big_menu">
-                          <li class="subject">객체지향프로그래밍 1</li>
+                          <li class="subjectname">자료구조</li>
                           <ul class="small_menu">
                             <li><a href="main_2.html">중간고사</a></li>
                             <li><a href="main_2.html">퀴즈</a></li>
@@ -270,51 +264,103 @@
                           </ul>
                         </ul>
                       </td>
-                      <td>멘토님</td>
-                      <td>2021-07-07</td>
+                      <td class="professorname">이채연</td>
+                      <td class="postDate">2021-07-11</td>
                     </tr>
-                  </tbody>
-                </table>
+                    <tr class="menu">
+                      <td class="postNum">1</td>
+                      <td>
+                        <ul class="big_menu">
+                          <li class="subjectname">객체지향프로그래밍 1</li>
+                          <ul class="small_menu">
+                            <li><a href="main_2.html">중간고사</a></li>
+                            <li><a href="main_2.html">퀴즈</a></li>
+                            <li><a href="main_2.html">기말고사</a></li>
+                          </ul>
+                        </ul>
+                      </td>
+                      <td class="professorname">멘토님</td>
+                      <td class="postDate">2021-07-07</td>
+                    </tr>
+                  </table>
+                </div>
               </div>
             </div>
+            <div></div>
           </div>
-          <div></div>
-        </div>
-        <br><br>
-    </body>
+          <br><br>
+      </body>
 </html>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+  const hiddenForm =document.getElementById("hidden-form");
+  const InputSub = hiddenForm.querySelector("input[name=Subject_name]");
+  const InputPro = hiddenForm.querySelector("input[name=Professor_name]");
+  const table = document.getElementById("table");
+
+  function paintNew(newSub, newPro) {
+    const tr = document.createElement("tr");
+    const td = document.createElement("td");
+    tr.appendChild(td);
+    td.innerText = newSub;
+    table.appendChild(tr);
+  }
+
+  function handleHiddenSubmit(event){
+    event.preventDefault();
+    const newSub = InputSub.value;
+    const newPro = InputPro.value;
+    InputSub.value = "";
+    InputPro.value = "";
+    paintNew(newSub, newPro);
+  }
+
+  hiddenForm.addEventListener("submit", handleHiddenSubmit);
+
   $(".small_menu").hide();
   $(".big_menu").click(function() {
       $("ul", this).slideToggle(200);
   });
 
-  $(".hidden-form").hide();
+  $("#hidden-form").hide();
   $(".writing-button").click(function() {
       $("form").slideToggle(50);
   });
 
-  $(function(){
-    $("#table").niceScroll();
-    console.log("123");
-  })
 
-  // 전송코드는 오류나서 일단 주석처리
-  // $('#hidden-submit-box').click(funtion(){
+  function filter(){
+    var searchbox, subjectname, professorname, menu, i;
+
+    searchbox = document.getElementById("search-box").value.toUpperCase();
+    menu = document.getElementsByClassName("menu");
+
+    for(i=0; i<menu.length; i++){
+      subjectname = menu[i].getElementsByClassName("subjectname");
+      professorname = menu[i].getElementsByClassName("professorname");
+
+      if(subjectname[0].innerHTML.toUpperCase().indexOf(searchbox) > -1){
+        menu[i].style = "table";
+      }
+      else if(professorname[0].innerHTML.toUpperCase().indexOf(searchbox) > -1){
+        menu[i].style = "table";
+      }
+      else{
+        menu[i].style.display = "none";
+      }
+    }
+  }
+
+
+
+  // $(#hidden-submit-box).click(funtion(){
   //   $.ajax({
   //     url: '/api/v1/start',
   //     type: 'post',
   //     dataType: 'JSON',
   //     data: $('form').serialize(),
   //     success: funtion(data){
-  //       if (data==='Write_Fail'){
-  //         alert('미입력된 첫 글 정보가 있습니다.')
-  //       }
-  //       else {
-  //         window.location.href='main_3.html'
-  //       }
+  //       window.location.href='main_3.html'
   //     }
   //   })
   // })
