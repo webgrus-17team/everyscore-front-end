@@ -294,32 +294,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-// 글작성시 바로 게시판에 추가되는 코드인데 미완성 --- 백엔드 필요할것 같음
-  const hiddenForm =document.getElementById("hidden-form");
-  const InputSub = hiddenForm.querySelector("input[name=Subject_name]");
-  const InputPro = hiddenForm.querySelector("input[name=Professor_name]");
-  const table = document.getElementById("table");
-
-  function paintNew(newSub, newPro) {
-    const tr = document.createElement("tr");
-    const td = document.createElement("td");
-    tr.appendChild(td);
-    td.innerText = newSub;
-    table.appendChild(tr);
-  }
-
-  function handleHiddenSubmit(event){
-    event.preventDefault();
-    const newSub = InputSub.value;
-    const newPro = InputPro.value;
-    InputSub.value = "";
-    InputPro.value = "";
-    paintNew(newSub, newPro);
-  }
-
-  hiddenForm.addEventListener("submit", handleHiddenSubmit);
-
-// 검색기능 구현 코드
+// 숨겨둔 메뉴 나오게 하는 코드
   $(".small_menu").hide();
   $(".big_menu").click(function() {
       $("ul", this).slideToggle(200);
@@ -330,7 +305,7 @@
       $("form").slideToggle(50);
   });
 
-// 글작성시 게시판에 바로 뜨게하는 코드인데 미완성(작성시 밑에 작게 뜨기만함)
+// 검색기능 코드
   function filter(){
     var searchbox, subjectname, professorname, menu, i;
 
