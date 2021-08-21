@@ -5,9 +5,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <title>Every Score</title>
     <style>
-      .hidden {
-        display: none;
-      }
        #Loginbox{
          width: 316px;
          height: 55px;
@@ -63,7 +60,7 @@
           <strong><a href="Login_Page.html">Every Score</a></strong>
         </p>
       </header>
-      <form id="login-form" action="/api/v1/user" method ="post">
+      <form name="Login_Form" action="/api/v1/user" method ="post">
          <div class="id-pw-group">
             <input type="text" name="id" maxlength="20" placeholder="ID" required>
             <input type="password" name="pw" maxlength="20" placeholder="Password" required>
@@ -74,18 +71,3 @@
     </div>
   </body>
 </html>
-
-<script>
-  const loginForm = document.querySelector("#login-form");
-  const loginInputId = document.querySelector("#login-form input[type=text]");
-  const loginInputPw = document.querySelector("#login-form input[type=password]");
-
-  function onLoginSubmit(event){
-    const id = loginInputId.value;
-    const pw = loginInputPw.value;
-    localStorage.setItem("Id", id);
-    localStorage.setItem("Pw", pw);
-  }
-
-  loginForm.addEventListener("submit", onLoginSubmit);
-</script>

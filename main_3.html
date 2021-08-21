@@ -45,7 +45,7 @@
             color: black;
             font-size: 15px;
           }
-          #hidden-submit-box{
+          #hidden-form-btn{
             background-color: black;
             margin-left: 10px;
             height : 30px;
@@ -159,7 +159,7 @@
                     >>
                     <input type="text" name="Subject_name" placeholder="  과목명" required>
                     <input type="text" name="Professor_name" placeholder="  교수명" required>
-                    <input type="submit" id="hidden-submit-box" value="완료">
+                    <input type="submit" id="hidden-form-btn" value="완료">
                   </form>
                 </div>
                 <div><img src="img/outline_search_black_24dp.png" title="검색" height=30, width=30></div>
@@ -177,96 +177,6 @@
                 <div style="overflow:scroll; overflow-x:hidden; width:820px; height:500px;">
                 <!-- 스크롤 바(가로,세로) 만들고 가로 바(x) 숨김 -->
                   <table id="table">
-                    <tr class="menu">
-                      <td class="postNum">7</td>
-                      <td>
-                        <ul class="big_menu">
-                          <li class="subjectname">인터넷 프로그래밍</li>
-                          <ul class="small_menu">
-                            <li><a href="main_2.html">중간고사</a></li>
-                            <li><a href="main_2.html">퀴즈</a></li>
-                            <li><a href="main_2.html">기말고사</a></li>
-                          </ul>
-                        </ul>
-                      </td>
-                      <td class="professorname">최경일</td>
-                      <td class="postDate">2021-08-18</td>
-                    </tr>
-                    <tr class="menu">
-                      <td class="postNum">6</td>
-                      <td>
-                        <ul class="big_menu">
-                          <li class="subjectname">객체지향프로그래밍 2</li>
-                          <ul class="small_menu">
-                            <li><a href="main_2.html">중간고사</a></li>
-                            <li><a href="main_2.html">퀴즈</a></li>
-                            <li><a href="main_2.html">기말고사</a></li>
-                          </ul>
-                        </ul>
-                      </td>
-                      <td class="professorname">임혜지</td>
-                      <td class="postDate">2021-08-18</td>
-                    </tr>
-                    <tr class="menu">
-                      <td class="postNum">5</td>
-                      <td>
-                        <ul class="big_menu">
-                          <li class="subjectname">프로젝트17</li>
-                          <ul class="small_menu">
-                            <li><a href="main_2.html">중간고사</a></li>
-                            <li><a href="main_2.html">퀴즈</a></li>
-                            <li><a href="main_2.html">기말고사</a></li>
-                          </ul>
-                        </ul>
-                      </td>
-                      <td class="professorname">이도경</td>
-                      <td class="postDate">2021-08-05</td>
-                    </tr>
-                    <tr class="menu">
-                      <td class="postNum">4</td>
-                      <td>
-                        <ul class="big_menu">
-                          <li class="subjectname">자료구조</li>
-                          <ul class="small_menu">
-                            <li><a href="main_2.html">중간고사</a></li>
-                            <li><a href="main_2.html">퀴즈</a></li>
-                            <li><a href="main_2.html">기말고사</a></li>
-                          </ul>
-                        </ul>
-                      </td>
-                      <td class="professorname">백권희</td>
-                      <td class="postDate">2021-08-07</td>
-                    </tr>
-                    <tr class="menu">
-                      <td class="postNum">3</td>
-                      <td>
-                        <ul class="big_menu">
-                          <li class="subjectname">컴퓨터공학입문</li>
-                          <ul class="small_menu">
-                            <li><a href="main_2.html">중간고사</a></li>
-                            <li><a href="main_2.html">퀴즈</a></li>
-                            <li><a href="main_2.html">기말고사</a></li>
-                          </ul>
-                        </ul>
-                      </td>
-                      <td class="professorname">최경일</td>
-                      <td class="postDate">2021-07-30</td>
-                    </tr>
-                    <tr class="menu">
-                      <td class="postNum">2</td>
-                      <td>
-                        <ul class="big_menu">
-                          <li class="subjectname">자료구조</li>
-                          <ul class="small_menu">
-                            <li><a href="main_2.html">중간고사</a></li>
-                            <li><a href="main_2.html">퀴즈</a></li>
-                            <li><a href="main_2.html">기말고사</a></li>
-                          </ul>
-                        </ul>
-                      </td>
-                      <td class="professorname">이채연</td>
-                      <td class="postDate">2021-07-11</td>
-                    </tr>
                     <tr class="menu">
                       <td class="postNum">1</td>
                       <td>
@@ -293,33 +203,73 @@
 </html>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    document.getElementById('hidden-form-btn').onclick = function(){
+      const request = new XMLHttpRequest();
+      request.onreadystatechange = () =>{
+          console.log('응답', request.readyState);
+          if(request.readyState == 4){
+              if(request.status == 200){
+                  const jsonData = JSON.parse(request.responseText);
+
+                  let result = '<tr class="menu">';
+                  for(let i=0; i<jsonData.length; i++){
+                          result += '<td>' + (i+1) + '</td>';
+                          result += '<td>'
+                                        '<ul class="big_menu">'
+                                          '<li class="subjectname">' + jsonData[i].Subject_name + '</li>'
+                                          '<ul class="small_menu">'
+                                            '<li><a href="main_2.html">중간고사</a></li>'
+                                            '<li><a href="main_2.html">퀴즈</a></li>'
+                                            '<li><a href="main_2.html">기말고사</a></li>'
+                                          '</ul>'
+                                        '</ul>'
+                                    '</td>';
+                          result += '<td class="professorname">' + jsonData[i].Professor_name + '</td>';
+                          result += '<td class="postDate">2021-07-07</td>';
+                  }
+                  result += '</tr>';
+
+                  document.getElementById('result').innerHTML = '';
+                  document.getElementById('result').innerHTML = result;
+              }else{
+                  alert("에러입니다");
+              }
+          }
+      };
+
+      request.open('POST', '/api/v1/board', true);
+      request.send();
+    };
+  });
+</script>
+
 <script>
-// 글작성시 바로 게시판에 추가되는 코드인데 미완성 --- 백엔드 필요할것 같음
-  const hiddenForm =document.getElementById("hidden-form");
-  const InputSub = hiddenForm.querySelector("input[name=Subject_name]");
-  const InputPro = hiddenForm.querySelector("input[name=Professor_name]");
-  const table = document.getElementById("table");
-
-  function paintNew(newSub, newPro) {
-    const tr = document.createElement("tr");
-    const td = document.createElement("td");
-    tr.appendChild(td);
-    td.innerText = newSub;
-    table.appendChild(tr);
-  }
-
-  function handleHiddenSubmit(event){
-    event.preventDefault();
-    const newSub = InputSub.value;
-    const newPro = InputPro.value;
-    InputSub.value = "";
-    InputPro.value = "";
-    paintNew(newSub, newPro);
-  }
-
-  hiddenForm.addEventListener("submit", handleHiddenSubmit);
-
 // 검색기능 구현 코드
+  function filter(){
+  var searchbox, subjectname, professorname, menu, i;
+
+  searchbox = document.getElementById("search-box").value.toUpperCase();
+  menu = document.getElementsByClassName("menu");
+
+  for(i=0; i<menu.length; i++){
+    subjectname = menu[i].getElementsByClassName("subjectname");
+    professorname = menu[i].getElementsByClassName("professorname");
+
+    if(subjectname[0].innerHTML.toUpperCase().indexOf(searchbox) > -1){
+      menu[i].style = "table";
+    }
+    else if(professorname[0].innerHTML.toUpperCase().indexOf(searchbox) > -1){
+      menu[i].style = "table";
+    }
+    else{
+      menu[i].style.display = "none";
+    }
+  }
+}
+
+// 숨겨둔 메뉴 나오게하는 기능
   $(".small_menu").hide();
   $(".big_menu").click(function() {
       $("ul", this).slideToggle(200);
@@ -330,28 +280,6 @@
       $("form").slideToggle(50);
   });
 
-// 글작성시 게시판에 바로 뜨게하는 코드인데 미완성(작성시 밑에 작게 뜨기만함)
-  function filter(){
-    var searchbox, subjectname, professorname, menu, i;
-
-    searchbox = document.getElementById("search-box").value.toUpperCase();
-    menu = document.getElementsByClassName("menu");
-
-    for(i=0; i<menu.length; i++){
-      subjectname = menu[i].getElementsByClassName("subjectname");
-      professorname = menu[i].getElementsByClassName("professorname");
-
-      if(subjectname[0].innerHTML.toUpperCase().indexOf(searchbox) > -1){
-        menu[i].style = "table";
-      }
-      else if(professorname[0].innerHTML.toUpperCase().indexOf(searchbox) > -1){
-        menu[i].style = "table";
-      }
-      else{
-        menu[i].style.display = "none";
-      }
-    }
-  }
 
 
 // JSON으로 데이터 전송하는 코드
