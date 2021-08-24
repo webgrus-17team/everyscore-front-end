@@ -1,5 +1,5 @@
 *{
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Poor Story', cursive;
   font-weight:900;
 }
 body{
@@ -31,6 +31,5 @@ a:hover{
 .everyscore_logo a{
    text-decoration: none;
    font-size: 30px;
-   font-family: 'Ubuntu', sans-serif;
    color: #01579B
 }
