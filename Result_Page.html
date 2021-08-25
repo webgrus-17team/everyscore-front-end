@@ -6,13 +6,6 @@
     <title>ES 점수집계</title>
     <link rel="stylesheet" href="css/top.css">
     <style>
-        *{
-             font-family: 'Poor Story', cursive;
-        }
-        .everyscore_logo a{
-              font-family: 'Rampart One', cursive;
-              font-weight:900;
-        }
         #Main_Info{
           display: grid;
           grid-template-columns: 1fr 500px 300px 1fr;
@@ -116,10 +109,10 @@
         <div id="right_info">
           <div class="stack_graph">
               <div class="average_stack1">
-                  <span style="width:47.2%;">평균: 47.2</span>
+                  <span style="width:47.2%;" id="average">평균: 47.2</span>
               </div>
               <div class="midvalue_stack2">
-                  <span style="width:41%;">중간값: 41</span>
+                  <span style="width:41%;" id="midvalue">중간값: 41</span>
               </div>
           </div>
           <div class="level_graph">
