@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Poor+Story&family=Rampart+One&display=swap" rel="stylesheet">
     <title>ES 점수집계</title>
-    <link rel="stylesheet" href="css/top.css">
+    <link rel="stylesheet" href="../css/top.css">
     <style>
         #Main_Info{
           display: grid;
@@ -84,12 +84,12 @@
     <nav class="everyscore">
 
       <div class="everyscore_logo">
-        <a href="Main3_page.html"><img src="img/outline_done_outline_black_24dp.png" height=40, width=40>Every Score</a>
+        <a href="Main3_page.jsp"><img src="../img/outline_done_outline_black_24dp.png" height=40, width=40>Every Score</a>
       </div>
       <ul class="everyscore_menu">
-        <li class="everyscore_item"><a href="Main3_page.html"><img src="img/outline_home_black_24dp.png" title="홈" height=30, width=30></a></li>
-        <li class="everyscore_item"><a href=""><img src="img/outline_face_black_24dp.png" title="마이페이지" height=30, width=30></a></li>
-        <li class="everyscore_item"><a href="Login_Page.html"><img src="img/outline_logout_black_24dp.png" title="로그아웃" height=30, width=30></a></li>
+        <li class="everyscore_item"><a href="Main3_page.jsp"><img src="../img/outline_home_black_24dp.png" title="홈" height=30, width=30></a></li>
+        <li class="everyscore_item"><a href=""><img src="../img/outline_face_black_24dp.png" title="마이페이지" height=30, width=30></a></li>
+        <li class="everyscore_item"><a href="Login_Page.jsp"><img src="../img/outline_logout_black_24dp.png" title="로그아웃" height=30, width=30></a></li>
       </ul>
     </nav>
 
@@ -118,7 +118,7 @@
               <canvas id="Donut_Chart" width="10px" height="10px"></canvas>
           </div>
           <div class="ranking">
-              <img src="img/free-icon-trophy-2164820.png" title="트로피" height=30, width=30>
+              <img src="../img/free-icon-trophy-2164820.png" title="트로피" height=30, width=30>
               <span class="myrank">내 등수 : 10 / 31 </span>
           </div>
         </div>
