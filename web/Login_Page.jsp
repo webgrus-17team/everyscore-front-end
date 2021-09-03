@@ -15,7 +15,7 @@
           <strong><a href="Login_Page.jsp">Every Score</a></strong>
         </p>
       </header>
-      <form name="Login_Form" action="/api/v1/user" method ="post">
+      <form name="Login_Form" action="http://localhost:8080/api/v1/user" method ="post">
          <div class="id-pw-group">
             <input type="text" name="id" maxlength="20" placeholder="ID" required>
             <input type="password" name="pw" maxlength="20" placeholder="Password" required>

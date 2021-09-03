@@ -16,7 +16,7 @@
     </header>
     <div id="container">
       <div id="join">
-       <form name="Join_Form" action="http://ManagePage.co.kr" method="post">
+       <form name="Join_Form" action="http://localhost:8080/api/v1/join" method="post">
         <table border="0">
           <tr>
             <td>
